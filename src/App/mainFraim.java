@@ -5,7 +5,7 @@ import Ex3.*;
 
 public class mainFraim {
 	Task[] openTask;
-	static Ta openTasks;
+	static TaskArr openTasks;
 	static Scanner in = new Scanner(System.in);
 	
 	public static void main(String [] args) {
@@ -13,14 +13,15 @@ public class mainFraim {
 		String choice = new String();				//the choice that the user will make
 		
 		//the Program
-		while(choice.compareTo("4") != 0) {		//compareTo return 0 if true
+		while(choice.compareTo("5") != 0) {		//compareTo return 0 if true
 			printMenu();
 			choice = in.nextLine();
 			switch(choice) {
-				case("1"):		//PhoneBook
-					phonebookApp.menu();}
+				case("1"):		
+					
 			}
 		in.close();
+		}
 		}
 
 	
@@ -41,4 +42,4 @@ public class mainFraim {
 	
 	
 
-}
+
