@@ -1,7 +1,7 @@
 package Ex3;
 
 public class TaskArr {
-	private Task[] taskArr = new Task[1];
+	Task[] taskArr = new Task[1];
 	private int nextEmpty = 0;
 	private int arrSize = 1;
 
