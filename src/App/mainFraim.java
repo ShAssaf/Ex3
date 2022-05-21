@@ -1,7 +1,8 @@
 package App;
 
 import java.util.Scanner;
-import Ex3.*;
+
+import Task.*;
 
 public class mainFraim {
 	static TaskArr openTasks;

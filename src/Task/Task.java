@@ -1,4 +1,4 @@
-package Ex3;
+package Task;
 import java.util.*;
 import java.time.*;
 import java.time.format.*;
@@ -60,38 +60,7 @@ public abstract class Task{
 		
 	}
 	
-	
-	//static methods
-	public static void sort_by_title(Task[] tasks) { // sort in place
-       Arrays.sort(tasks, new Comparator<Task>() {
-            @Override
-            public int compare(Task first, Task second)
-            {
-                return first.getTitle().compareTo(second.getTitle());
-            }
-        }
-       );
-	}
-	public static void sort_by_date_started(Task[] tasks) { // sort in place
-	       Arrays.sort(tasks, new Comparator<Task>() {
-	            @Override
-	            public int compare(Task first, Task second)
-	            {
-	                return first.getCreateDate().compareTo(second.getCreateDate());
-	            }
-	        }
-	       );
-		}
-	public static void sort_by_date_target(Task[] tasks) { // sort in place
-	       Arrays.sort(tasks, new Comparator<Task>() {
-	            @Override
-	            public int compare(Task first, Task second)
-	            {
-	                return first.getTargetDate().compareTo(second.getTargetDate());
-	            }
-	        }
-	       );
-		}
+
 //	public void task_print() {
 //		DateTimeFormatter formatter2 = DateTimeFormatter.ISO_DATE_TIME;
 //		System.out.println("###############################");
