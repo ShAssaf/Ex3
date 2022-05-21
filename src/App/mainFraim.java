@@ -34,6 +34,8 @@ public class mainFraim {
 	
 			}
 			in.close();
+			System.out.println("goodBy");
+
 		}
 	}
 //	public Task getTaskByID(int id) {
