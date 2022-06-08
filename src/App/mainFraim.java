@@ -1,10 +1,10 @@
 package App;
 
 import java.util.Scanner;
-
-import Task.*;
+import Ex3.*;
 
 public class mainFraim {
+	Task[] openTask;
 	static TaskArr openTasks;
 	static Scanner in = new Scanner(System.in);
 
@@ -13,40 +13,25 @@ public class mainFraim {
 		String choice = new String(); // the choice that the user will make
 
 		// the Program
-		while (choice.compareTo("4") != 0) { // compareTo return 0 if true
+		while (choice.compareTo("5") != 0) { // compareTo return 0 if true
 			printMenu();
 			choice = in.nextLine();
 			switch (choice) {
 			case ("1"):
-				openTasks.addTask(null);//TODO:  complete the call
-				break;
-			case ("2"):
-				deleteTask();
-				break;
-			case ("3"):
-				
-				//updateTask();
-				break;
-			case ("4"):
-				break;
-			default:
-				System.out.println("bad input");
-	
+
 			}
 			in.close();
-			System.out.println("goodBy");
-
 		}
 	}
-//	public Task getTaskByID(int id) {
-//		for(int i = 0; i<openTasks.g)
-//	}
-	
 
-	public static void deleteTask() {
+	public void addTask(Task[] taskList) {
+
 	}
 
-	public static void updateTask(Task t) {
+	public void deleteTask() {
+	}
+
+	public void updateTask() {
 	}
 
 	public static void printMenu() {
@@ -55,7 +40,7 @@ public class mainFraim {
 		System.out.println("1 - Add Task");
 		System.out.println("2 - Delete Task");
 		System.out.println("3 - Modify Task");
-		System.out.println("4 - Exit");
+		System.out.println("5 - Exit");
 	}
 
 }
