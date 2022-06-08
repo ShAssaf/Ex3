@@ -8,8 +8,8 @@ public class Task{
 	private LocalDateTime timeCreated;
 	private LocalDateTime timeTarget;
 	private String title = new String();
-	private DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	private DateTimeFormatter formatter2 = DateTimeFormatter.ISO_DATE_TIME;
+	public DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	public DateTimeFormatter formatter2 = DateTimeFormatter.ISO_DATE_TIME;
 	
 	
 	
@@ -79,7 +79,7 @@ public class Task{
 		System.out.println("###############################");
 		System.out.println(String.format("Task name -- %s", this.getTitle()));
 		System.out.println(String.format("Task created at -- %s", this.getCreateDate().format(formatter2)));
-		System.out.println(String.format("Task taget time is -- %s", this.getTargetDate().format(formatter2)));
+		System.out.println(String.format("Task target time is -- %s", this.getTargetDate().format(formatter2)));
 		System.out.println(String.format("is active -- %b", this.getActive()));
 		System.out.println("###############################");
 
