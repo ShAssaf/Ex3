@@ -10,6 +10,7 @@ public abstract class Task{
 	private LocalDateTime timeCreated;
 	private LocalDateTime timeTarget = null;
 	private String title = new String();
+	private String description = new String();
 	private String label = new String();
 	private DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 	
@@ -18,6 +19,9 @@ public abstract class Task{
 	//getters 
 	public String getTitle() {
 		return this.title;
+	}
+	public String getDescription() {
+		return this.description;
 	}
 	public String getLabel() {
 		return this.label;
@@ -40,6 +44,9 @@ public abstract class Task{
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public void setLabl(String label) {
 		this.label = label;
 	}
@@ -59,6 +66,9 @@ public abstract class Task{
 		idGen ++;
 		
 	}
+	static public String convertDateToString(LocalDateTime d) {
+		return d.format(DateTimeFormatter.ISO_DATE_TIME);
+	}
 	
 
 	public void task_print() {
@@ -71,7 +81,7 @@ public abstract class Task{
 		System.out.println("###############################");
 
 	}
-//	abstract Task crateTask();
+	//abstract Task crateTask();
 	
 	//constructors 
 
