@@ -26,17 +26,17 @@ public class ComplexTask extends Task {
 }
 
 class MileStone{
-	boolean achived = false ;
+	boolean active = false ;
 	String title;
 	LocalDateTime timeTarget = null;
 	static DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 	public MileStone(String title) {
 		this.title = title;
-		this.achived = false;
+		this.active = false;
 	}
 	public MileStone(String title,String date_string) {
 		this.title = title;
-		this.achived = false;
+		this.active = false;
 		this.timeTarget = LocalDateTime.parse(date_string, formatter1);
 	}
 }
