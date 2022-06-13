@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 /** maybe change name????????? **/
 
-public class SimpleTask {
+public class SimpleTaskTomer {
 
 	//--------------Data Members--------------
 	
@@ -23,7 +23,7 @@ public class SimpleTask {
 	
 	//--------------Constructor--------------
 	
-	public SimpleTask(String label) {
+	public SimpleTaskTomer(String label) {
 		this.initCheckBox();
 		this.initLabelPanel(label);
 		this.initButtonPanel();

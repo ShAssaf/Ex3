@@ -34,7 +34,7 @@ public class GUI {
 	
 	//___________load frame___________
 	
-	public void loadSimpleFrame(SimpleTask st) {
+	public void loadSimpleFrame(SimpleTaskTomer st) {
 		this.frame.add(st.getCheckBoxPanel(), BorderLayout.CENTER);
 		this.frame.add(st.getLabelPanel(), BorderLayout.NORTH);
 		this.frame.add(st.getButtonPanel(), BorderLayout.SOUTH);
@@ -43,7 +43,7 @@ public class GUI {
 	
 	//___________preper the frame for the next one___________
 	
-	public void remove(SimpleTask st) {
+	public void remove(SimpleTaskTomer st) {
 		this.frame.remove(st.getCheckBoxPanel());
 		this.frame.remove(st.getLabelPanel());
 		this.frame.remove(st.getButtonPanel());

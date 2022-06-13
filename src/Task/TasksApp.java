@@ -10,9 +10,9 @@ import javax.swing.JOptionPane;
 public class TasksApp{
 	
 	private GUI gui = new GUI("Task Maneger",400,600);
-	private SimpleTask simpleTask = new SimpleTask("Simple Task Maneger");
-	private SimpleTask complexTask = new SimpleTask("Complex Task Maneger");
-	private SimpleTask datedTask = new SimpleTask("Dated Task Maneger");
+	private SimpleTaskTomer simpleTask = new SimpleTaskTomer("Simple Task Maneger");
+	private SimpleTaskTomer complexTask = new SimpleTaskTomer("Complex Task Maneger");
+	private SimpleTaskTomer datedTask = new SimpleTaskTomer("Dated Task Maneger");
 	private int current;
 	//private ArrayList<model> tasks = new ArrayList<model>();//???
 	
@@ -41,7 +41,7 @@ public class TasksApp{
 		this.current = c;
 	}
 	
-	public SimpleTask getCurrentPanel() {
+	public SimpleTaskTomer getCurrentPanel() {
 		switch(this.current)
 		{
 			case(0):
@@ -53,7 +53,7 @@ public class TasksApp{
 		}
 		return null;
 	}
-	public void addTask(model task , SimpleTask st) {
+	public void addTask(model task , SimpleTaskTomer st) {
 		ActionListener al = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -68,7 +68,7 @@ public class TasksApp{
 		st.addCheckBox(task.get_task(),al);
 	}
 	
-	public void addTaskButton(SimpleTask st) {
+	public void addTaskButton(SimpleTaskTomer st) {
 		model task = new model();
 		ActionListener al = new ActionListener() {
 			@Override
@@ -84,7 +84,7 @@ public class TasksApp{
 		st.addButton("add task", al);
 	}
 	
-	public void addSortButton(SimpleTask st) {
+	public void addSortButton(SimpleTaskTomer st) {
 		ActionListener al = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -95,7 +95,7 @@ public class TasksApp{
 		st.addButton("Sort", al);
 	}
 	
-	public void addSimpleTaskMenu(SimpleTask st) {
+	public void addSimpleTaskMenu(SimpleTaskTomer st) {
 		ActionListener al = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -108,7 +108,7 @@ public class TasksApp{
 		this.gui.addMenu("Simple", al);
 	}
 	
-	public void addComplexTaskMenu(SimpleTask st) {
+	public void addComplexTaskMenu(SimpleTaskTomer st) {
 		ActionListener al = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -121,7 +121,7 @@ public class TasksApp{
 		this.gui.addMenu("Complex", al);
 	}
 	
-	public void addDatedTaskMenu(SimpleTask st) {
+	public void addDatedTaskMenu(SimpleTaskTomer st) {
 		ActionListener al = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e){
