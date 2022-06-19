@@ -48,7 +48,7 @@ public class SimpleTaskTomer {
 	//___________initiate Check Box Panel___________
 	
 	public void initCheckBox() {
-		this.checkBoxPanel.setLayout(new GridLayout(30, 1, 10, 5));
+		this.checkBoxPanel.setLayout(new GridLayout(30, 1, 10, 0));
 		this.checkBoxPanel.setBackground(Color.WHITE);
 	}
 	
@@ -75,9 +75,9 @@ public class SimpleTaskTomer {
 	
 	//___________Adding ChackBoxs___________
 	
-	public void addCheckBox(String task, ActionListener al) {
+	public void addCheckBox(String title, String secondery, ActionListener al) {
 		JCheckBox checkBox = new JCheckBox();
-		checkBox.setText(task);
+		checkBox.setText(title+"-"+secondery);
 		this.checkBoxPanel.add(checkBox);
 		checkBox.addActionListener(al);
 	}

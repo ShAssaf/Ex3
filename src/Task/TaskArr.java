@@ -35,9 +35,11 @@ public class TaskArr {
 		}
 		for (;i<this.arrSize-1;i++) {
 			this.taskArr[i]= this.taskArr[i+1];
-			
-			
+				
 		}
+	}
+	public Task getNext() { 
+		return this.taskArr[this.arrSize-1];
 	}
 	
 	//static methods
