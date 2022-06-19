@@ -11,9 +11,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/** maybe change name????????? **/
 
-public class SimpleTaskTomer {
+public class Panel {
 
 	//--------------Data Members--------------
 	
@@ -23,7 +22,7 @@ public class SimpleTaskTomer {
 	
 	//--------------Constructor--------------
 	
-	public SimpleTaskTomer(String label) {
+	public Panel(String label) {
 		this.initCheckBox();
 		this.initLabelPanel(label);
 		this.initButtonPanel();
@@ -75,9 +74,10 @@ public class SimpleTaskTomer {
 	
 	//___________Adding ChackBoxs___________
 	
-	public void addCheckBox(String title, String secondery, ActionListener al) {
+	public void addCheckBox(String title, String secondery,Boolean selected, ActionListener al) {
 		JCheckBox checkBox = new JCheckBox();
 		checkBox.setText(title+"-"+secondery);
+		checkBox.setSelected(!selected);
 		this.checkBoxPanel.add(checkBox);
 		checkBox.addActionListener(al);
 	}

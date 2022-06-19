@@ -34,7 +34,7 @@ public class GUI {
 	
 	//___________load frame___________
 	
-	public void loadSimpleFrame(SimpleTaskTomer st) {
+	public void loadSimpleFrame(Panel st) {
 		this.frame.add(st.getCheckBoxPanel(), BorderLayout.CENTER);
 		this.frame.add(st.getLabelPanel(), BorderLayout.NORTH);
 		this.frame.add(st.getButtonPanel(), BorderLayout.SOUTH);
@@ -43,7 +43,7 @@ public class GUI {
 	
 	//___________preper the frame for the next one___________
 	
-	public void remove(SimpleTaskTomer st) {
+	public void remove(Panel st) {
 		this.frame.remove(st.getCheckBoxPanel());
 		this.frame.remove(st.getLabelPanel());
 		this.frame.remove(st.getButtonPanel());
@@ -60,6 +60,14 @@ public class GUI {
 
 	public void addMenu(String text, ActionListener al) {
 		JMenuItem menuItem 	 = new JMenuItem(text);
+		this.menu.add(menuItem);
+		
+		menuItem.addActionListener(al);
+		this.reset();
+	}
+	
+	public void addCheckBoxMenu(String text, ActionListener al) {
+		JCheckBoxMenuItem menuItem 	 = new JCheckBoxMenuItem(text);
 		this.menu.add(menuItem);
 		
 		menuItem.addActionListener(al);

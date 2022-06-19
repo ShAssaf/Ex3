@@ -1,50 +1,21 @@
 package Task;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Comparator;
 
 public class TaskArr {
-	Task[] taskArr = new Task[1];
-	private int nextEmpty = 0;
-	private int arrSize = 1;
-
-	private boolean isFull() {
-		return (this.nextEmpty == this.arrSize);
-	}
+	ArrayList<Task> taskArr = new ArrayList<Task>();
 
 	public void addTask(Task t) {
-		if (isFull()) {
-			Task[] newTaskArr = new Task[this.arrSize * 2];
-			for (int i = 0; i <this.arrSize; i++) {
-				newTaskArr[i] = this.taskArr[i];
-			}
-			this.taskArr = newTaskArr;
-			this.arrSize *= 2;
-		}
-		this.taskArr[nextEmpty] = t;
-		this.nextEmpty++;
+		this.taskArr.add(t);
 		
 	}
 	public void deleteTask(Task t) { 
-		int i=0;
-		for (;i< this.arrSize;i++) {
-			if(this.taskArr[i].getTaskID() == t.getTaskID()) {
-				this.taskArr[i]= null;
-				break;
-			}
-		}
-		for (;i<this.arrSize-1;i++) {
-			this.taskArr[i]= this.taskArr[i+1];
-				
-		}
-	}
-	public Task getNext() { 
-		return this.taskArr[this.arrSize-1];
+		this.taskArr.remove(t);
 	}
 	
-	//static methods
-	public static void sort_by_title(Task[] tasks) { // sort in place
-       Arrays.sort(tasks, new Comparator<Task>() {
+	public void sort_by_title() { // sort in place
+       this.taskArr.sort(new Comparator<Task>() {
             @Override
             public int compare(Task first, Task second)
             {
@@ -53,24 +24,26 @@ public class TaskArr {
         }
        );
 	}
-	public static void sort_by_date_started(Task[] tasks) { // sort in place
-	       Arrays.sort(tasks, new Comparator<Task>() {
-	            @Override
-	            public int compare(Task first, Task second)
-	            {
-	                return first.getCreateDate().compareTo(second.getCreateDate());
-	            }
-	        }
-	       );
-		}
-	public static void sort_by_date_target(Task[] tasks) { // sort in place
-	       Arrays.sort(tasks, new Comparator<Task>() {
-	            @Override
-	            public int compare(Task first, Task second)
-	            {
-	                return first.getTargetDate().compareTo(second.getTargetDate());
-	            }
-	        }
-	       );
-		}
+	
+	public void sort_by_date_started() { // sort in place
+		this.taskArr.sort(new Comparator<Task>() {
+            @Override
+            public int compare(Task first, Task second)
+            {
+                return first.getCreateDate().compareTo(second.getCreateDate());
+            }
+        }
+       );
+	}
+	
+	public void sort_by_date_target() { // sort in place
+		this.taskArr.sort(new Comparator<Task>() {
+            @Override
+            public int compare(Task first, Task second)
+            {
+                return first.getTargetDate().compareTo(second.getTargetDate());
+            }
+        }
+       );
+	}
 }
