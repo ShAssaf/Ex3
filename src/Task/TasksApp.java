@@ -10,24 +10,28 @@ import javax.swing.JOptionPane;
 public class TasksApp{
 	
 	private TaskArr TAsimple = new TaskArr();
+	private TaskArr TAcomplex = new TaskArr();
 	private TaskArr TAdated = new TaskArr();
 	private GUI gui = new GUI("Task Maneger",400,600);
 	private SimpleTaskTomer simpleTask = new SimpleTaskTomer("Simple Task Maneger");
 	private SimpleTaskTomer complexTask = new SimpleTaskTomer("Complex Task Maneger");
 	private SimpleTaskTomer datedTask = new SimpleTaskTomer("Dated Task Maneger");
 	private int current;
-	//private ArrayList<model> tasks = new ArrayList<model>();//???
 	
 	public TasksApp() {
 		this.gui.loadSimpleFrame(simpleTask);
 		
 		this.addSimpleTaskButton(simpleTask);
-		this.addSimpleTaskButton(complexTask);
+		this.addComplexTaskButton(complexTask);
 		this.addDatedTaskButton(datedTask);
 		
 		this.addSortByTitleButton(simpleTask);
 		this.addSortByTitleButton(complexTask);
 		this.addSortByTitleButton(datedTask);
+		
+		this.addSortByCreateButton(simpleTask);
+		this.addSortByCreateButton(complexTask);
+		this.addSortByCreateButton(datedTask);
 		
 		this.addSimpleTaskMenu(simpleTask);
 		this.addComplexTaskMenu(complexTask);
@@ -82,7 +86,7 @@ public class TasksApp{
 					TAsimple.getNext().setActive(false);
 				else
 					TAsimple.getNext().setActive(true);
-				System.out.println(TAsimple.getNext().getLabel() + TAsimple.getNext().getActive());
+				System.out.println(TAsimple.getNext().getTitle() + TAsimple.getNext().getActive());
 			}
 		};
 		st.addCheckBox(this.TAsimple.taskArr[index].getTitle(),this.TAsimple.taskArr[index].getDescription(),al);
@@ -99,6 +103,55 @@ public class TasksApp{
 				 String desc = JOptionPane.showInputDialog("Enter description"); 
 				 TAsimple.addTask(new SimpleTask(task, desc));
 				 addSimpleTask(st);
+				 gui.reset();
+			}
+		};
+		st.addButton("add task", al);
+	}
+	
+	/**------------[Complex Task Methods]-------------**/
+	
+	public void addComplexTask(SimpleTaskTomer st) {
+		ActionListener al = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// TODO Auto-generated method stub 
+				if(TAcomplex.getNext().getActive())	
+					TAcomplex.getNext().setActive(false);
+				else
+					TAcomplex.getNext().setActive(true);
+				System.out.println(TAcomplex.getNext().getTitle() + TAcomplex.getNext().getActive());
+			}
+		};
+		st.addCheckBox(this.TAcomplex.getNext().getTitle(),Task.convertDateToString(this.TAcomplex.getNext().getTargetDate()),al);
+	}
+	
+	public void addComplexTask(SimpleTaskTomer st, int index) {
+		ActionListener al = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// TODO Auto-generated method stub 
+				if(TAcomplex.getNext().getActive())	
+					TAcomplex.getNext().setActive(false);
+				else
+					TAcomplex.getNext().setActive(true);
+				System.out.println(TAcomplex.getNext().getTitle() + TAcomplex.getNext().getActive());
+			}
+		};
+		st.addCheckBox(this.TAcomplex.taskArr[index].getTitle(),Task.convertDateToString(this.TAcomplex.taskArr[index].getTargetDate()),al);
+	}
+	
+	public void addComplexTaskButton(SimpleTaskTomer st) {
+		 String task =" ";
+		 String date = " ";
+		 ActionListener al = new ActionListener() {
+			 @Override
+			 public void actionPerformed(ActionEvent e){
+				 // TODO Auto-generated method stub
+				 String task = JOptionPane.showInputDialog("Enter new task");  
+				 String date = JOptionPane.showInputDialog("Enter date yyyy-MM-dd HH:mm:ss"); 
+				 TAcomplex.addTask(new ComplexTask(task, date));
+				 addComplexTask(st);
 				 gui.reset();
 			}
 		};
@@ -146,7 +199,7 @@ public class TasksApp{
 				 // TODO Auto-generated method stub
 				 String task = JOptionPane.showInputDialog("Enter new task");  
 				 String date = JOptionPane.showInputDialog("Enter date yyyy-MM-dd HH:mm:ss"); 
-				 TAdated.addTask(new SimpleTask(task, date));
+				 TAdated.addTask(new DatedTask(task, date));
 				 addDatedTask(st);
 				 gui.reset();
 			}
@@ -170,21 +223,54 @@ public class TasksApp{
 					}
 				}
 				else if(current == 1) {
-					
+					TaskArr.sort_by_title(TAcomplex.taskArr);
+					for(int i=0;i<TAcomplex.taskArr.length;i++) {
+						addComplexTask(st,i);
+					}
 				}
 				else if(current == 2){
 					TaskArr.sort_by_title(TAdated.taskArr);
 					for(int i=0;i<TAdated.taskArr.length;i++) {
-						addSimpleTask(st,i);
+						addDatedTask(st,i);
 					}
 				}				
 				gui.reset();
 				
 			}
 		};
-		st.addButton("Sort", al);
+		st.addButton("Sort by name", al);
 	}
 
+	public void addSortByCreateButton(SimpleTaskTomer st) {
+		ActionListener al = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// TODO Auto-generated method stub
+				st.getCheckBoxPanel().removeAll();
+				if(current == 0) {
+					TaskArr.sort_by_date_started(TAsimple.taskArr);
+					for(int i=0;i<TAsimple.taskArr.length;i++) {
+						addSimpleTask(st,i);
+					}
+				}
+				else if(current == 1) {
+					TaskArr.sort_by_date_started(TAcomplex.taskArr);
+					for(int i=0;i<TAcomplex.taskArr.length;i++) {
+						addComplexTask(st,i);
+					}
+				}
+				else if(current == 2){
+					TaskArr.sort_by_date_started(TAdated.taskArr);
+					for(int i=0;i<TAdated.taskArr.length;i++) {
+						addDatedTask(st,i);
+					}
+				}				
+				gui.reset();
+				
+			}
+		};
+		st.addButton("Sort by create", al);
+	}
 	
 	
 	/**-----------[menus]-----------**/
